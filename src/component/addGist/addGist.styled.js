@@ -8,4 +8,5 @@ export const TextAreaWrapper = styled.div`
 
 export const ContentTextWrapper = styled.div`
   text-align: center;
+  color: #2f2f2f;
 `;

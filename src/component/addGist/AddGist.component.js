@@ -31,13 +31,19 @@ const AddGist = ({ gist, actions }) => {
                 disabled={item.isEditDisable}
                 autoSize={true}
                 style={{ width: 500, background: '#ffffff', color: '#2f2f2f' }}
-                onBlur={e => allowEditGist(item.id)}
                 onChange={e => onEditGist(e, item.id, item.value)}
               />
+              {item.hash ? <div>Hash: {item.hash}</div> : ''}
             </div>
-            <Button type='primary' onClick={e => allowEditGist(item.id)}>
-              Edit
-            </Button>
+            {item.isEditDisable ? (
+              <Button type='primary' onClick={e => allowEditGist(item.id)}>
+                Edit
+              </Button>
+            ) : (
+              <Button type='primary' onClick={e => allowEditGist(item.id)}>
+                Confirm
+              </Button>
+            )}
             <Button type='danger' onClick={e => toDeleteGist(item.id)}>
               Delete
             </Button>
